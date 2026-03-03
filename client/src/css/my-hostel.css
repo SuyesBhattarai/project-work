@@ -1,0 +1,111 @@
+/* ================================================
+   MY HOSTELS PAGE - Tailwind CSS with @apply
+   src/css/my-hostel.css
+   ================================================ */
+
+/* ── Grid ── */
+.hostels-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* ── Card ── */
+.hostel-card {
+  @apply bg-white rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden;
+}
+
+/* ── Image Area ── */
+.hostel-image {
+  @apply h-40 bg-gradient-to-br from-teal-400 to-teal-600 overflow-hidden relative;
+}
+
+.hostel-image img {
+  @apply w-full h-full object-cover;
+}
+
+/* ── Content ── */
+.hostel-content {
+  @apply p-5;
+}
+
+.hostel-header {
+  @apply flex items-start justify-between mb-3;
+}
+
+.hostel-info {
+  @apply flex-1 min-w-0 pr-2;
+}
+
+.hostel-name {
+  @apply text-base font-semibold text-gray-900 mb-1 truncate;
+}
+
+.hostel-location {
+  @apply flex items-center gap-1 text-gray-500 text-xs;
+}
+
+.hostel-location svg {
+  @apply w-3.5 h-3.5 flex-shrink-0;
+}
+
+/* ── Menu Button ── */
+.menu-container {
+  @apply relative flex-shrink-0;
+}
+
+.hostel-menu-button {
+  @apply w-8 h-8 flex items-center justify-center rounded-lg;
+  @apply text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors;
+  @apply bg-transparent border-0 cursor-pointer;
+}
+
+.hostel-menu-button svg {
+  @apply w-4 h-4;
+}
+
+/* ── Dropdown ── */
+.dropdown-menu {
+  @apply absolute right-0 mt-1 w-36 bg-white border border-gray-100 rounded-lg shadow-xl z-50 py-1;
+}
+
+.dropdown-item {
+  @apply flex items-center gap-2 w-full px-3 py-2 text-sm text-gray-700;
+  @apply hover:bg-gray-50 transition-colors text-left bg-transparent border-0 cursor-pointer;
+}
+
+.dropdown-item svg {
+  @apply w-3.5 h-3.5;
+}
+
+.dropdown-item-delete {
+  @apply text-red-500 hover:bg-red-50;
+}
+
+/* ── Stats ── */
+.hostel-stats {
+  @apply grid grid-cols-3 gap-2 mt-4;
+}
+
+.hostel-stat-box {
+  @apply bg-gray-50 rounded-lg px-3 py-2 text-center;
+}
+
+.hostel-stat-label {
+  @apply text-xs text-gray-400 mb-1;
+}
+
+.hostel-stat-value {
+  @apply text-sm font-semibold text-gray-900;
+}
+
+/* ── Rating ── */
+.hostel-rating {
+  @apply flex items-center gap-1 mt-3;
+}
+
+.hostel-rating svg {
+  @apply w-4 h-4 text-yellow-400;
+}
+
+.hostel-rating-value {
+  @apply text-sm font-medium text-gray-700;
+}

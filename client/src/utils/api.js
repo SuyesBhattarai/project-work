@@ -1,13 +1,14 @@
 import axios from 'axios';
 
+// Axios instance pointing to backend
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: 'http://localhost:5000/api', // IMPORTANT
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-// Request interceptor to add token
+// Request interceptor to add access token if available
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('accessToken');
@@ -16,24 +17,23 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Response interceptor to handle token refresh
+// Response interceptor to handle token refresh automatically
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
 
+    // If 401 and not retried yet
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       try {
         const refreshToken = localStorage.getItem('refreshToken');
         const response = await axios.post(
-          `${import.meta.env.VITE_API_URL}/auth/refresh`,
+          `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/auth/refresh`,
           { refreshToken }
         );
 

@@ -1,28 +1,16 @@
 import { z } from 'zod';
 
-export const loginSchema = z.object({
+const loginSchema = z.object({
+  // Email: Must be valid email with @
   email: z
     .string()
     .min(1, 'Email is required')
-    .email('Please enter a valid email address'),
+    .email('Invalid email address - must contain @'),
+  
+  // Password: Just check if it exists (no complexity check on login)
   password: z
     .string()
-    .min(1, 'Password is required')
-    .min(6, 'Password must be at least 6 characters'),
+    .min(1, 'Password is required'),
 });
 
-export const signupSchema = z.object({
-  name: z.string().min(1, 'Name is required'),
-  email: z
-    .string()
-    .min(1, 'Email is required')
-    .email('Please enter a valid email address'),
-  password: z
-    .string()
-    .min(1, 'Password is required')
-    .min(6, 'Password must be at least 6 characters'),
-  confirmPassword: z.string().min(1, 'Please confirm your password'),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ['confirmPassword'],
-});
+export default loginSchema;

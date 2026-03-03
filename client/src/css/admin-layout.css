@@ -1,0 +1,235 @@
+/* ================================================
+   ADMIN LAYOUT — admin-layout.css
+   ================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+#root {
+  width: 100% !important;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+/* ── Layout Shell ── */
+.adm-layout {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* ── Sidebar ── */
+.adm-sidebar {
+  @apply fixed top-0 left-0 h-screen z-50
+         flex flex-col
+         transition-all duration-300 ease-in-out
+         overflow-hidden;
+  background-color: #0f172a;
+  border-right: 1px solid #1e293b;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.35);
+}
+
+.adm-sidebar-open   { width: 256px; }
+.adm-sidebar-closed { width: 72px; }
+
+/* Brand */
+.adm-brand {
+  @apply flex items-center gap-3 px-4;
+  min-height: 68px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.adm-brand-icon {
+  @apply w-9 h-9 rounded-xl flex items-center justify-center
+         text-white flex-shrink-0;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+}
+
+.adm-brand-text { @apply flex-1 min-w-0; }
+
+.adm-brand-name {
+  @apply text-sm font-bold leading-tight truncate;
+  color: #f1f5f9;
+}
+
+.adm-brand-sub {
+  @apply text-xs truncate;
+  color: #64748b;
+}
+
+.adm-toggle {
+  @apply w-8 h-8 flex items-center justify-center
+         rounded-lg flex-shrink-0 cursor-pointer
+         transition-all duration-200 border-0;
+  background: transparent;
+  color: #64748b;
+}
+
+.adm-toggle:hover {
+  background: rgba(255,255,255,0.1);
+  color: #f1f5f9;
+}
+
+/* Navigation */
+.adm-nav {
+  @apply flex-1 flex flex-col gap-1 px-3 py-5;
+}
+
+.adm-nav-link {
+  @apply flex items-center gap-3 px-3 py-3
+         rounded-xl text-sm font-medium
+         transition-all duration-200 no-underline
+         whitespace-nowrap overflow-hidden;
+}
+
+.adm-nav-inactive { color: #94a3b8; }
+.adm-nav-inactive:hover {
+  background: rgba(255,255,255,0.07);
+  color: #e2e8f0;
+}
+
+.adm-nav-active {
+  @apply text-white;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  box-shadow: 0 4px 14px rgba(59,130,246,0.35);
+}
+
+.adm-nav-icon-only {
+  @apply justify-center px-3;
+}
+
+.adm-nav-icon { @apply flex-shrink-0; }
+
+/* Footer */
+.adm-footer {
+  @apply flex flex-col gap-3 p-3;
+  border-top: 1px solid #1e293b;
+}
+
+.adm-profile {
+  @apply flex items-center gap-3 p-2 rounded-xl overflow-hidden;
+  background: rgba(255,255,255,0.05);
+}
+
+.adm-profile-center { @apply justify-center; }
+
+.adm-avatar {
+  @apply w-9 h-9 rounded-full flex items-center justify-center
+         text-white font-bold text-sm flex-shrink-0;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.adm-admin-info { @apply flex-1 min-w-0; }
+
+.adm-admin-name {
+  @apply text-sm font-semibold truncate;
+  color: #f1f5f9;
+}
+
+.adm-admin-email {
+  @apply text-xs truncate;
+  color: #64748b;
+}
+
+.adm-logout {
+  @apply flex items-center justify-center gap-2 w-full
+         px-3 py-2.5 rounded-xl text-sm font-semibold
+         cursor-pointer transition-all duration-200;
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.25);
+  color: #f87171;
+}
+
+.adm-logout:hover {
+  @apply text-white;
+  background: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 4px 14px rgba(239,68,68,0.35);
+}
+
+.adm-logout-center { @apply px-3; }
+
+/* ── Main — KEY: must fill ALL remaining width ── */
+.adm-main {
+  /* stretch to fill everything after sidebar */
+  flex: 1 1 0%;
+  min-width: 0;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease;
+  /* no width limit */
+  width: auto;
+  overflow-x: hidden;
+}
+
+.adm-main-open   { margin-left: 256px; }
+.adm-main-closed { margin-left: 72px; }
+
+/* Topbar */
+.adm-topbar {
+  @apply sticky top-0 z-40
+         flex items-center justify-between
+         px-8 py-4 border-b border-slate-200;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  /* full width of parent */
+  width: 100%;
+}
+
+.adm-topbar-left  { @apply flex items-center gap-2 text-sm; }
+.adm-topbar-brand { @apply font-bold text-slate-800; }
+.adm-topbar-sep   { @apply text-slate-300 text-base; }
+.adm-topbar-page  { @apply text-slate-500; }
+
+.adm-topbar-status {
+  @apply flex items-center gap-2 px-3 py-1.5
+         rounded-full text-xs font-semibold
+         border border-emerald-200;
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.adm-status-dot {
+  @apply w-2 h-2 rounded-full flex-shrink-0;
+  background: #22c55e;
+  animation: adm-pulse 2s infinite;
+}
+
+@keyframes adm-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* Content — full width, no max-width */
+.adm-content {
+  flex: 1;
+  padding: 32px;
+  background: #f1f5f9;
+  width: 100%;
+  max-width: none;
+}

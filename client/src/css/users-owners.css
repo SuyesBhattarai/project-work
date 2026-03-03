@@ -1,0 +1,270 @@
+/* ================================================
+   USERS & OWNERS — users-owners.css
+   All styles use @apply with valid Tailwind classes
+   ================================================ */
+
+.uo-spin {
+  animation: uo-spin-anim 1s linear infinite;
+}
+
+@keyframes uo-spin-anim {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Error ── */
+.uo-error-wrap {
+  @apply flex items-center justify-center min-h-96;
+}
+
+.uo-error-card {
+  @apply bg-white rounded-2xl p-12 text-center
+         max-w-sm w-full
+         flex flex-col items-center gap-3;
+  border: 1px solid #fee2e2;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.uo-error-icon  { @apply text-red-500; }
+.uo-error-title { @apply text-xl font-bold text-slate-800; }
+.uo-error-msg   { @apply text-sm text-slate-500 leading-relaxed; }
+
+.uo-retry-btn {
+  @apply flex items-center gap-2 px-5 py-2.5 mt-2
+         bg-blue-600 text-white text-sm font-semibold
+         rounded-xl border-0 cursor-pointer
+         transition-colors duration-200 hover:bg-blue-700;
+}
+
+/* ── Page ── */
+.uo-page {
+  @apply flex flex-col gap-6 w-full;
+}
+
+/* ── Header ── */
+.uo-header {
+  @apply flex flex-wrap items-start justify-between gap-4;
+}
+
+.uo-title {
+  @apply text-3xl font-extrabold text-slate-800 tracking-tight;
+}
+
+.uo-subtitle {
+  @apply text-sm text-slate-500 mt-1;
+}
+
+.uo-header-right {
+  @apply flex flex-wrap items-center gap-2;
+}
+
+.uo-count {
+  @apply flex items-center gap-2 px-4 py-2
+         rounded-xl text-sm font-bold border;
+}
+
+.uo-count-blue   { @apply bg-blue-50 text-blue-600 border-blue-100; }
+.uo-count-purple { @apply bg-violet-50 text-violet-600 border-violet-100; }
+
+.uo-icon-btn {
+  @apply w-10 h-10 flex items-center justify-center
+         bg-white border border-slate-200 rounded-xl
+         text-slate-500 cursor-pointer
+         transition-all duration-200
+         shadow-sm
+         hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200;
+}
+
+/* ── Card ── */
+.uo-card {
+  @apply bg-white rounded-2xl overflow-hidden w-full;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+/* Toolbar */
+.uo-toolbar {
+  @apply flex flex-wrap items-start justify-between gap-4 px-6 py-5;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.uo-card-title { @apply text-lg font-bold text-slate-800; }
+.uo-card-sub   { @apply text-sm text-slate-400 mt-1; }
+
+.uo-controls {
+  @apply flex flex-wrap items-center gap-3;
+}
+
+.uo-search-wrap { @apply relative; }
+
+.uo-search-icon {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none;
+}
+
+.uo-search {
+  @apply pl-9 pr-4 py-2.5 w-64 text-sm text-slate-800
+         rounded-xl outline-none
+         transition-all duration-200
+         placeholder:text-slate-400;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.uo-search:focus {
+  @apply bg-white;
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+
+.uo-select {
+  @apply px-4 py-2.5 text-sm font-semibold text-slate-600
+         rounded-xl outline-none cursor-pointer
+         transition-all duration-200;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.uo-select:focus {
+  @apply bg-white;
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+
+/* ── Table ── */
+.uo-table-wrap { @apply overflow-x-auto; }
+
+.uo-table { @apply w-full border-collapse; }
+
+.uo-thead-row {
+  @apply border-b;
+  background: #f8fafc;
+  border-color: #f1f5f9;
+}
+
+.uo-th {
+  @apply px-5 py-4 text-left text-xs font-bold
+         text-slate-500 uppercase tracking-wider whitespace-nowrap;
+}
+
+.uo-tr {
+  @apply transition-colors duration-150;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.uo-tr:last-child { border-bottom: none; }
+
+.uo-tr:hover { @apply bg-slate-50; }
+
+.uo-td {
+  @apply px-5 py-4 align-middle whitespace-nowrap;
+}
+
+.uo-muted { @apply text-sm text-slate-500; }
+
+/* Member cell */
+.uo-member {
+  @apply flex items-center gap-3;
+}
+
+.uo-av {
+  @apply w-9 h-9 rounded-full flex items-center justify-center
+         font-bold text-sm flex-shrink-0;
+}
+
+.uo-av-blue   { @apply bg-blue-100 text-blue-700; }
+.uo-av-purple { @apply bg-violet-100 text-violet-700; }
+
+.uo-name { @apply text-sm font-semibold text-slate-800; }
+
+/* Badges */
+.uo-type {
+  @apply inline-flex items-center px-3 py-1
+         rounded-full text-xs font-bold;
+}
+
+.uo-type-blue   { @apply bg-blue-100 text-blue-700; }
+.uo-type-purple { @apply bg-violet-100 text-violet-700; }
+
+.uo-status {
+  @apply inline-flex items-center gap-1.5 px-3 py-1
+         rounded-full text-xs font-bold
+         bg-emerald-100 text-emerald-700;
+}
+
+.uo-status-dot {
+  @apply w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block;
+}
+
+/* Delete button */
+.uo-del {
+  @apply inline-flex items-center gap-1.5
+         px-3 py-2 rounded-xl
+         text-xs font-bold cursor-pointer
+         transition-all duration-200;
+  background: #fff1f2;
+  color: #ef4444;
+  border: 1px solid #fecdd3;
+}
+
+.uo-del:hover:not(.uo-del-disabled) {
+  @apply text-white;
+  background: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 4px 14px rgba(239,68,68,0.28);
+  transform: translateY(-1px);
+}
+
+.uo-del-disabled {
+  @apply opacity-30 cursor-not-allowed;
+}
+
+/* Skeleton */
+.uo-skel-wrap { @apply p-6 flex flex-col gap-5; }
+.uo-skel-row  { @apply flex items-center gap-4; }
+
+.uo-sk {
+  @apply bg-slate-100 rounded-lg;
+  animation: uo-shimmer 1.5s infinite;
+}
+
+.uo-sk-av    { @apply w-9 h-9 rounded-full flex-shrink-0; }
+.uo-sk-lines { @apply flex-1 flex flex-col gap-2; }
+.uo-sk-s     { @apply h-3 w-1/3; }
+.uo-sk-l     { @apply h-3 w-1/2; }
+.uo-sk-badge { @apply w-16 h-6 rounded-full; }
+.uo-sk-btn   { @apply w-20 h-8 rounded-xl; }
+
+@keyframes uo-shimmer {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Empty */
+.uo-empty {
+  @apply flex flex-col items-center justify-center py-20 gap-3;
+}
+
+.uo-empty-icon { @apply text-slate-200; }
+.uo-empty-text { @apply text-base font-medium text-slate-400; }
+
+.uo-clear {
+  @apply bg-transparent border-0 text-blue-600
+         text-sm font-semibold cursor-pointer underline;
+}
+
+/* Footer */
+.uo-footer {
+  @apply px-6 py-4 text-sm text-slate-500;
+  border-top: 1px solid #f1f5f9;
+  background: #f8fafc;
+}
+
+.uo-footer strong { @apply font-bold text-slate-700; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .uo-toolbar  { @apply flex-col; }
+  .uo-controls { @apply w-full; }
+  .uo-search   { @apply w-full; }
+  .uo-select   { @apply flex-1; }
+}

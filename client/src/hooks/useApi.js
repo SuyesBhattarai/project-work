@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import api from '../utils/api';
+import api from '../utils/api'; // import the axios instance
 
 const useApi = () => {
   const [loading, setLoading] = useState(false);
@@ -19,10 +19,8 @@ const useApi = () => {
       setLoading(false);
       return { data: response.data, error: null };
     } catch (err) {
-      const errorMessage = 
-        err.response?.data?.message || 
-        err.message || 
-        'An error occurred';
+      const errorMessage =
+        err.response?.data?.message || err.message || 'An error occurred';
       setError(errorMessage);
       setLoading(false);
       return { data: null, error: errorMessage };

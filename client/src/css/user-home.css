@@ -1,0 +1,323 @@
+/* ================================================
+   USER HOME — user-home.css
+   Sidebar layout using Tailwind @apply
+   ================================================ */
+
+/* ── Layout ── */
+.uh-layout {
+  @apply flex w-screen min-h-screen;
+  background: #f8fafc;
+}
+
+/* ── Sidebar ── */
+.uh-sidebar {
+  @apply fixed top-0 left-0 h-screen z-50 flex flex-col;
+  width: 220px;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  box-shadow: 2px 0 16px rgba(0,0,0,0.06);
+}
+
+/* Brand */
+.uh-brand {
+  @apply flex items-center gap-3 px-5 py-5;
+  border-bottom: 1px solid #f1f5f9;
+  min-height: 72px;
+}
+
+.uh-brand-icon {
+  @apply w-9 h-9 rounded-xl flex items-center justify-center text-white flex-shrink-0;
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  box-shadow: 0 4px 12px rgba(13,148,136,0.35);
+}
+
+.uh-brand-text { @apply flex-1 min-w-0; }
+
+.uh-brand-name {
+  @apply text-base font-bold leading-tight truncate;
+  color: #0f172a;
+}
+
+.uh-brand-sub {
+  @apply text-xs truncate;
+  color: #94a3b8;
+}
+
+/* Navigation */
+.uh-nav {
+  @apply flex-1 flex flex-col px-3 py-4 gap-1;
+}
+
+.uh-nav-section {
+  @apply text-xs font-bold uppercase tracking-widest px-3 mb-2;
+  color: #94a3b8;
+}
+
+.uh-link {
+  @apply flex items-center gap-3 px-3 py-2.5
+         rounded-xl text-sm font-medium
+         transition-all duration-200 no-underline
+         whitespace-nowrap;
+}
+
+.uh-link-inactive {
+  color: #64748b;
+}
+
+.uh-link-inactive:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.uh-link-active {
+  @apply font-semibold;
+  background: #f0fdfa;
+  color: #0d9488;
+  border-left: 3px solid #0d9488;
+  padding-left: calc(0.75rem - 3px);
+}
+
+.uh-link-icon { @apply flex-shrink-0; }
+
+/* Footer */
+.uh-footer {
+  @apply flex flex-col gap-3 p-3;
+  border-top: 1px solid #f1f5f9;
+}
+
+.uh-user-row {
+  @apply flex items-center gap-3 px-2 py-2 rounded-xl;
+  background: #f8fafc;
+}
+
+.uh-avatar {
+  @apply w-9 h-9 rounded-full flex items-center justify-center
+         text-white font-bold text-sm flex-shrink-0;
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+}
+
+.uh-user-info { @apply flex-1 min-w-0; }
+
+.uh-user-name {
+  @apply text-sm font-semibold truncate;
+  color: #0f172a;
+}
+
+.uh-user-email {
+  @apply text-xs truncate;
+  color: #94a3b8;
+}
+
+.uh-logout {
+  @apply flex items-center justify-center gap-2 w-full
+         px-3 py-2.5 rounded-xl text-sm font-semibold
+         cursor-pointer transition-all duration-200;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #ef4444;
+}
+
+.uh-logout:hover {
+  @apply text-white;
+  background: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 4px 12px rgba(239,68,68,0.3);
+}
+
+/* ── Main ── */
+.uh-main {
+  @apply flex flex-col min-h-screen;
+  margin-left: 220px;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Topbar */
+.uh-topbar {
+  @apply sticky top-0 z-40 flex items-center px-8 py-4;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.uh-search-wrap {
+  @apply relative w-full max-w-lg;
+}
+
+.uh-search-icon {
+  @apply absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none;
+}
+
+.uh-search-input {
+  @apply w-full pl-11 pr-4 py-2.5 text-sm rounded-xl outline-none
+         transition-all duration-200 placeholder:text-slate-400;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+}
+
+.uh-search-input:focus {
+  background: #ffffff;
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13,148,136,0.12);
+}
+
+/* Content */
+.uh-content {
+  @apply flex-1 p-8;
+}
+
+.uh-page-head { @apply mb-6; }
+
+.uh-page-title {
+  @apply text-2xl font-extrabold;
+  color: #0f172a;
+}
+
+.uh-page-sub {
+  @apply text-sm mt-1;
+  color: #64748b;
+}
+
+/* ── Hostels Grid ── */
+.uh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+@media (max-width: 1200px) { .uh-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px)  { .uh-grid { grid-template-columns: 1fr; } }
+
+/* ── Hostel Card ── */
+.uh-card {
+  @apply bg-white rounded-2xl overflow-hidden
+         transition-all duration-200;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.uh-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+}
+
+.uh-card-img-wrap {
+  @apply relative overflow-hidden;
+  height: 200px;
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+}
+
+.uh-card-img {
+  @apply w-full h-full object-cover;
+}
+
+.uh-img-placeholder {
+  @apply w-full h-full flex items-center justify-center text-white;
+}
+
+.uh-price-tag {
+  @apply absolute top-3 right-3 px-3 py-1
+         text-white text-sm font-bold rounded-full;
+  background: #f97316;
+  box-shadow: 0 2px 8px rgba(249,115,22,0.4);
+}
+
+/* Card Body */
+.uh-card-body { @apply p-5; }
+
+.uh-card-title {
+  @apply text-lg font-bold mb-2;
+  color: #0f172a;
+}
+
+.uh-card-location {
+  @apply flex items-center gap-1.5 text-sm mb-2;
+  color: #64748b;
+}
+
+.uh-country { @apply font-semibold; color: #0d9488; }
+
+.uh-card-meta {
+  @apply flex items-center gap-4 mb-3;
+}
+
+.uh-rating {
+  @apply flex items-center gap-1 text-sm font-medium;
+  color: #0f172a;
+}
+
+.uh-star { color: #f59e0b; }
+
+.uh-beds {
+  @apply flex items-center gap-1 text-sm;
+  color: #64748b;
+}
+
+/* Amenities */
+.uh-amenities {
+  @apply flex flex-wrap gap-1.5 mb-3;
+}
+
+.uh-amenity {
+  @apply inline-flex items-center gap-1 px-2.5 py-1
+         rounded-full text-xs font-medium capitalize;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.uh-owner {
+  @apply text-xs mb-4;
+  color: #94a3b8;
+}
+
+.uh-book-btn {
+  @apply w-full py-2.5 rounded-xl text-white font-semibold text-sm
+         border-0 cursor-pointer transition-all duration-200;
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  box-shadow: 0 4px 12px rgba(13,148,136,0.3);
+}
+
+.uh-book-btn:hover {
+  background: linear-gradient(135deg, #0f766e, #0e7490);
+  box-shadow: 0 6px 16px rgba(13,148,136,0.4);
+  transform: translateY(-1px);
+}
+
+/* Skeleton */
+.uh-skel-card {
+  @apply bg-white rounded-2xl overflow-hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.uh-skel-img {
+  height: 200px;
+  background: #f1f5f9;
+  animation: uh-shimmer 1.5s infinite;
+}
+
+.uh-skel-body { @apply p-5 flex flex-col gap-3; }
+
+.uh-sk {
+  @apply bg-slate-100 rounded-lg;
+  animation: uh-shimmer 1.5s infinite;
+}
+
+.uh-sk-title { @apply h-5 w-3/4; }
+.uh-sk-line  { @apply h-4 w-1/2; }
+.uh-sk-sm    { @apply h-4 w-1/3; }
+
+@keyframes uh-shimmer {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* Empty */
+.uh-empty {
+  @apply flex flex-col items-center justify-center py-20 gap-3;
+  color: #cbd5e1;
+}
+
+.uh-empty p { @apply text-sm font-medium; }

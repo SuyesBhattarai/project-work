@@ -1,0 +1,156 @@
+/* ================================================
+   DASHBOARD COMMON STYLES - Tailwind CSS with @apply
+   src/css/dashboard.css
+   ================================================ */
+
+.dashboard-layout {
+  @apply flex min-h-screen bg-gray-50;
+}
+
+/* ── Sidebar ── */
+.dashboard-sidebar {
+  @apply w-64 bg-gray-900 text-white flex flex-col fixed h-full z-10;
+}
+
+.dashboard-sidebar-logo {
+  @apply p-6 border-b border-gray-800;
+}
+
+.dashboard-sidebar-logo-container {
+  @apply flex items-center gap-3;
+}
+
+.dashboard-sidebar-logo-icon {
+  @apply w-10 h-10 bg-teal-600 rounded-lg flex items-center justify-center;
+}
+
+.dashboard-sidebar-logo-icon svg {
+  @apply w-6 h-6 text-white;
+}
+
+.dashboard-sidebar-title {
+  @apply text-xl font-bold text-white;
+}
+
+/* ── Sidebar Nav ── */
+.dashboard-sidebar-nav {
+  @apply flex-1 p-4 space-y-1;
+}
+
+.dashboard-nav-link {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all no-underline;
+  @apply text-gray-400 hover:bg-gray-800 hover:text-white;
+}
+
+.dashboard-nav-link-active {
+  @apply bg-teal-600 text-white hover:bg-teal-600 hover:text-white;
+}
+
+.dashboard-nav-link svg {
+  @apply w-5 h-5 flex-shrink-0;
+}
+
+.dashboard-nav-link span {
+  @apply font-medium text-sm;
+}
+
+/* ── Sidebar User Info ── */
+.dashboard-sidebar-user {
+  @apply p-4 border-t border-gray-800;
+}
+
+.dashboard-sidebar-user-container {
+  @apply flex items-center gap-3 mb-3;
+}
+
+.dashboard-sidebar-user-avatar {
+  @apply w-9 h-9 bg-teal-600 rounded-full flex items-center justify-center flex-shrink-0;
+}
+
+.dashboard-sidebar-user-avatar span {
+  @apply text-white text-xs font-bold;
+}
+
+.dashboard-sidebar-user-info {
+  @apply flex flex-col min-w-0;
+}
+
+.dashboard-sidebar-user-name {
+  @apply text-sm font-semibold text-white truncate;
+}
+
+.dashboard-sidebar-user-role {
+  @apply text-xs text-gray-400 truncate;
+}
+
+/* ── Logout ── */
+.dashboard-sidebar-logout {
+  @apply p-4 border-t border-gray-800;
+}
+
+.dashboard-logout-button {
+  @apply flex items-center gap-3 px-4 py-3 rounded-lg transition-all w-full;
+  @apply text-gray-400 hover:bg-gray-800 hover:text-white cursor-pointer;
+  @apply bg-transparent border-0 text-sm font-medium;
+}
+
+.dashboard-logout-button svg {
+  @apply w-5 h-5 flex-shrink-0;
+}
+
+/* ── Main Content ── */
+.dashboard-main {
+  @apply flex-1 ml-64 flex flex-col min-h-screen;
+}
+
+/* ── Header ── */
+.dashboard-header {
+  @apply bg-white border-b border-gray-200 sticky top-0 z-10;
+}
+
+.dashboard-header-container {
+  @apply flex items-center justify-between px-8 py-4;
+}
+
+.dashboard-header-title {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.dashboard-header-actions {
+  @apply flex items-center gap-3;
+}
+
+/* ── Search ── */
+.dashboard-search-wrapper {
+  @apply relative;
+}
+
+.dashboard-search-icon {
+  @apply absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none;
+}
+
+.dashboard-search-input {
+  @apply pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-lg bg-gray-50;
+  @apply focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent;
+  @apply w-60 placeholder-gray-400 transition-all;
+}
+
+/* ── Avatar ── */
+.dashboard-user-avatar {
+  @apply w-9 h-9 bg-teal-600 rounded-full flex items-center justify-center;
+  @apply text-white hover:bg-teal-700 transition-colors cursor-pointer border-0;
+}
+
+/* ── Page Content ── */
+.dashboard-content {
+  @apply flex-1 px-8 py-8;
+}
+
+/* ── Empty State ── */
+.dashboard-empty-state {
+  @apply flex items-center justify-center h-64;
+}
+
+.dashboard-empty-state p {
+  @apply text-gray-400 text-base;
+}

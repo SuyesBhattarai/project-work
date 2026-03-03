@@ -1,0 +1,122 @@
+/* ================================================
+   BOOKING MODAL — booking-model.css
+   Using Tailwind @apply
+   ================================================ */
+
+.modal-overlay {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.modal-container {
+  @apply bg-white w-full overflow-y-auto;
+  max-width: 600px;
+  max-height: 90vh;
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+}
+
+/* Header */
+.modal-header {
+  @apply sticky top-0 bg-white flex items-center justify-between px-6 py-5;
+  border-bottom: 1px solid #f1f5f9;
+  border-radius: 20px 20px 0 0;
+  z-index: 10;
+}
+
+.modal-title {
+  @apply text-xl font-bold;
+  color: #0f172a;
+}
+
+.modal-subtitle {
+  @apply text-sm mt-1;
+  color: #64748b;
+}
+
+.modal-close {
+  @apply w-9 h-9 flex items-center justify-center
+         rounded-xl cursor-pointer transition-all duration-200
+         border-0;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.modal-close:hover {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+/* Form */
+.modal-form {
+  @apply p-6 flex flex-col gap-5;
+}
+
+.form-group { @apply flex flex-col gap-1.5; }
+
+.form-group label {
+  @apply text-sm font-semibold;
+  color: #374151;
+}
+
+.form-group input {
+  @apply w-full px-4 py-2.5 text-sm rounded-xl outline-none
+         transition-all duration-200;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+.form-group input:focus {
+  background: #ffffff;
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13,148,136,0.12);
+}
+
+.form-row {
+  @apply grid gap-4;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Total */
+.total-amount {
+  @apply flex items-center justify-between px-5 py-4 rounded-xl;
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+}
+
+.total-amount span {
+  @apply text-sm font-semibold;
+  color: #374151;
+}
+
+.total-amount strong {
+  @apply text-2xl font-extrabold;
+  color: #0d9488;
+}
+
+/* Submit */
+.btn-submit {
+  @apply w-full py-3 rounded-xl text-white font-bold text-base
+         border-0 cursor-pointer transition-all duration-200;
+  background: linear-gradient(135deg, #0d9488, #0891b2);
+  box-shadow: 0 4px 14px rgba(13,148,136,0.3);
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0f766e, #0e7490);
+  box-shadow: 0 6px 18px rgba(13,148,136,0.4);
+  transform: translateY(-1px);
+}
+
+.btn-submit:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .modal-container { margin: 16px; max-height: calc(100vh - 32px); }
+  .modal-header, .modal-form { @apply px-4 py-4; }
+  .form-row { grid-template-columns: 1fr; }
+}
