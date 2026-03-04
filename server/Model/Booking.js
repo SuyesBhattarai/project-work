@@ -1,3 +1,4 @@
+// Booking model - stores all hostel booking details
 const { DataTypes } = require('sequelize');
 const sequelize = require('../Database/db');
 
