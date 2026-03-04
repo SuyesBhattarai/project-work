@@ -1,3 +1,4 @@
+// Booking Routes - defines all booking endpoints
 const express = require('express');
 const router = express.Router();
 const bookingController = require('../../Controller/Booking/bookingController');
