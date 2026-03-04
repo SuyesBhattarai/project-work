@@ -1,3 +1,4 @@
+// Test file for authentication routes
 const request = require("supertest");
 const app = require("../index");
 
