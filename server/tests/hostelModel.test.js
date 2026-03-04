@@ -1,3 +1,4 @@
+// Test file for hostel model validation
 const SequelizeMock = require('sequelize-mock');
 const dbMock = new SequelizeMock();
 
