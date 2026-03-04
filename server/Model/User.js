@@ -1,3 +1,4 @@
+// User model - defines the structure of a user in the database
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
