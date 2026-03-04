@@ -1,4 +1,5 @@
 // Model/Hostel.js
+// Hostel model - defines the structure of a hostel in the database
 const { DataTypes } = require('sequelize');
 const sequelize = require('../Database/db');
 
