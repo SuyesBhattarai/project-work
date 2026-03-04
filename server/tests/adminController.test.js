@@ -1,4 +1,4 @@
-const adminController = require("../Controller/Admin/adminController");
+// Test file for admin controllerconst adminController = require("../Controller/Admin/adminController");
 
 describe("Admin Controller", () => {
 
