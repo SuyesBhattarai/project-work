@@ -1,3 +1,4 @@
+// Auth Routes - defines all authentication endpoints
 import express from "express";
 import { authController } from "../../controller/auth/authController.js";
 
