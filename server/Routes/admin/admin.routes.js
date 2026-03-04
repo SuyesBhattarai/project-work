@@ -1,3 +1,4 @@
+// Admin Routes - defines all admin only endpoints
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
