@@ -1,3 +1,4 @@
+// Hostel Routes - defines all hostel endpoints
 const express = require('express');
 const router = express.Router();
 const hostelController = require('../../Controller/Hostel/hostelController');
