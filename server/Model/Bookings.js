@@ -1,3 +1,4 @@
+// Bookings model - alternative booking schema with extra details
 const { DataTypes } = require('sequelize');
 const sequelize = require('../Database/db');
 
