@@ -1,3 +1,4 @@
+// Test file for booking controller
 jest.mock("../Model/Booking");
 jest.mock("../Model/Hostel");
 
