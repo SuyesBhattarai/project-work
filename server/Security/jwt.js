@@ -1,3 +1,4 @@
+// JWT Security - handles token generation and verification
 const jwt = require("jsonwebtoken");
 
 // ================= VERIFY TOKEN =================
