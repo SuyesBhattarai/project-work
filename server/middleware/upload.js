@@ -1,3 +1,4 @@
+// Upload Middleware - handles file uploads using multer
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
