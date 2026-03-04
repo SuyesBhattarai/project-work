@@ -1,3 +1,4 @@
+// Test file for JWT security functions
 const request = require('supertest');
 const express = require('express');
 const bodyParser = require('body-parser');
