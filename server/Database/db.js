@@ -1,3 +1,5 @@
+// Database configuration - connects to MongoDB
+// Database connection file
 const { Sequelize } = require("sequelize");
 require('dotenv').config({ path: __dirname + '/../.env' }); 
 
